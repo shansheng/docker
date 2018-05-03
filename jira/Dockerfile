@@ -38,10 +38,8 @@ RUN curl --fail --location --retry 3 \
     && \mv -f /opt/atlassian-jira-software-* ${JIRA_APP} \
     && \rm -f /tmp/jira.tar.gz \
     && curl --fail --location --retry 3 http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.43/mysql-connector-java-5.1.43.jar \
-        -o ${JIRA_APP}/lib/mysql-connector-java-5.1.43.jar \
-    && unzip /opt/jirac.zip \
-    && \cp -r /opt/atlassian-extras-3.1.2.jar ${JIRA_APP}/lib \
-    && \cp -r /opt/atlassian-extras-3.2.jar ${JIRA_APP}/lib 
+        -o ${JIRA_APP}/lib/mysql-connector-java-5.1.43.jar
+    
 
 # https://confluence.atlassian.com/adminjiraserver073/connecting-jira-applications-to-mysql-861253043.html
 ADD resources/dbconfig.xml ${JIRA_APP}/templates/dbconfig.xml
